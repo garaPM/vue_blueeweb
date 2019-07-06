@@ -6,15 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Proyecto 1</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+  <script src="componentes/padre.js"></script>
+  <script src="componentes/hijo.js"></script>
 </head>
 <body>
-  <div id="app">
-    <saludo></saludo>
-    <contador></contador>
+  <div id="app" class="container">
+    <padre></padre>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="componentes/saludo.js"></script>
-  <script src="componentes/contador.js"></script>
+
+  <script>
+    new Vue({
+      el:'#app'
+    })
+  </script>
 
 </body>
 </html>
