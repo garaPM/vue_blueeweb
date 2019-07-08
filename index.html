@@ -4,22 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Proyecto 1</title>
+  <title>Vuex</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.js"></script>
 
-  <script src="componentes/padre.js"></script>
-  <script src="componentes/hijo.js"></script>
 </head>
 <body>
   <div id="app" class="container">
-    <padre></padre>
+
+  <titulo></titulo>
+
   </div>
 
   <script>
+
+    Vue.component('titulo', {
+      template: //html
+      `
+      <div>
+        <h1>numero {{ $store.state.numero }}</h1>
+        <hijo></hijo>
+      </div>
+      `
+    })
+
+    Vue.component('hijo', {
+      template: //html
+      `
+      <div>
+        <h1>numero {{ $store.state.numero }}</h1>
+        <button @click="$store.commit('aumentar')">+</button>
+      </div>
+      `
+    })
+
+  const store = new Vuex.Store({
+    state: {
+      numero: 10
+    },
+    mutations: {
+      aumentar(state) {
+        state.numero++
+      }
+    }
+
+  });
+
     new Vue({
-      el:'#app'
+      el:'#app',
+      store
     })
   </script>
 
